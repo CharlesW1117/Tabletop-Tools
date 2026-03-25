@@ -79,7 +79,7 @@ function heal(maxHp, currentHp, healAmount) {
  * @returns {number} the character's proficiency bonus
  */
 function getProficiencyBonus(level, rank) {
-   if (rank === "untrained") {
+  if (rank === "untrained") {
     return 0;
   } else if (rank === "trained") {
     return level;
@@ -133,7 +133,8 @@ function getRemainingHp(maxHp, currentHp, damage) {
   let remainingHp = currentHp - damage;
   if (remainingHp <= 0) {
     return 0; // dropped to 0 or below
-  }return remainingHp;
+  }
+  return remainingHp;
 }
 
 /**
@@ -168,5 +169,13 @@ function canSee(light, vision) {
  * @returns {number} damage dealt by the strike
  */
 function getStrikeDamage(attack, ac, damage) {
-  // TODO
+  if (attack < ac) {
+    return 0;
+  }
+
+  if (attack >= ac * 2) {
+    return damage * 2;
+  }
+
+  return damage;
 }
