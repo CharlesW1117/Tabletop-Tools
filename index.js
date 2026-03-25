@@ -103,7 +103,15 @@ function getProficiencyBonus(level, rank) {
  * @returns {number} the cover bonus to AC
  */
 function getCoverBonus(behindObstacle, takingCover) {
-  // TODO
+  if (behindObstacle) {
+    if (takingCover) {
+      return 4;
+    } else {
+      return 2;
+    }
+  } else {
+    return 0;
+  }
 }
 
 /**
@@ -119,7 +127,7 @@ function getCoverBonus(behindObstacle, takingCover) {
  * @returns {number} the creature's remaining HP after taking damage
  */
 function getRemainingHp(maxHp, currentHp, damage) {
-  // TODO
+  
 }
 
 /**
