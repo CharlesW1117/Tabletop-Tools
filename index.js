@@ -43,7 +43,7 @@ function doesStrikeHit(attack, ac) {
  */
 function doesStrikeCrit(attack, ac) {
   // TODO
-  return attack >= ac + 5;
+  return attack >= ac + 10;
 }
 
 /**
