@@ -152,7 +152,7 @@ function canSee(light, vision) {
   if (vision === "dark") {
     return true;
   }
-  if (light === "dim" && vision === "low-light") {
+  if (light === "dim" && vision === "low-light" || "dark") {
     return true;
   }
   return false;
@@ -168,14 +168,8 @@ function canSee(light, vision) {
  * @param {number} damage - damage on a normal hit
  * @returns {number} damage dealt by the strike
  */
-function getStrikeDamage(attack, ac, damage) {
-  if (attack < ac) {
+function getStrikeDamage(attack, ac, damage)
+  if (!doesStrikeHit) {
     return 0;
   }
-
-  if (attack >= ac * 2) {
-    return damage * 2;
-  }
-
-  return damage;
-}
+return doesStrikeCrit(attack, ac) ? damage * 2 : damage;
